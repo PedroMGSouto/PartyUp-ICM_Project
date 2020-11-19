@@ -64,6 +64,15 @@ dependencies {
     //To hash Emails with MD5 Apache Common Codec
     implementation 'commons-codec:commons-codec:1.15'
 
+    //Camera X
+    def camerax_version = "1.0.0-beta12"
+    // CameraX core library using camera2 implementation
+    implementation "androidx.camera:camera-camera2:$camerax_version"
+    // CameraX Lifecycle Library
+    implementation "androidx.camera:camera-lifecycle:$camerax_version"
+    // CameraX View class
+    implementation "androidx.camera:camera-view:1.0.0-alpha19"
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
