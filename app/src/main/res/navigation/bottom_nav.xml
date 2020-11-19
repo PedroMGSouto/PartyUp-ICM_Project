@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/Home">
+
+    <fragment
+        android:id="@+id/Home"
+        android:name="com.example.partyup.Frag_MainScreen_Requests"
+        android:label="fragment_frag__main_screen__requests"
+        tools:layout="@layout/fragment_frag__main_screen__requests" >
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests2_to_frag_FriendsAndChat2"
+            app:destination="@id/Friends" />
+    </fragment>
+    <fragment
+        android:id="@+id/Scanner"
+        android:name="com.example.partyup.Frag_Scanner"
+        android:label="fragment_frag__scanner"
+        tools:layout="@layout/fragment_frag__scanner" >
+        <action
+            android:id="@+id/action_frag_Scanner_to_frag_Map"
+            app:destination="@id/Map" />
+    </fragment>
+    <fragment
+        android:id="@+id/Map"
+        android:name="com.example.partyup.Frag_Map"
+        android:label="Frag_Map" >
+        <action
+            android:id="@+id/action_frag_Map_to_frag_MainScreen_Requests2"
+            app:destination="@id/Home" />
+    </fragment>
+    <fragment
+        android:id="@+id/Friends"
+        android:name="com.example.partyup.Frag_FriendsAndChat"
+        android:label="fragment_frag__friends_and_chat"
+        tools:layout="@layout/fragment_frag__friends_and_chat" >
+        <action
+            android:id="@+id/action_frag_FriendsAndChat2_to_frag_Profile2"
+            app:destination="@id/Profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/Profile"
+        android:name="com.example.partyup.frag_Profile"
+        android:label="fragment_frag__profile"
+        tools:layout="@layout/fragment_frag__profile" />
+</navigation>

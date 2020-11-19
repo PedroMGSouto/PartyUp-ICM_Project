@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "24855933111",
+    "firebase_url": "https://partyup-pslp.firebaseio.com",
+    "project_id": "partyup-pslp",
+    "storage_bucket": "partyup-pslp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24855933111:android:cd1b6dd5845f5764b79d32",
+        "android_client_info": {
+          "package_name": "com.example.partyup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24855933111-8q99pdid5ml9bi1m251of6cpu2fhd4oo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.partyup",
+            "certificate_hash": "63fbd4c9d17e72469ed8332e87a84a86d2aa32c5"
+          }
+        },
+        {
+          "client_id": "24855933111-aoabacbq57gnkq2brscrbkuep34nedvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeH8YW6KtWdxo-9dQl9vLxTpQGJY0iTVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24855933111-aoabacbq57gnkq2brscrbkuep34nedvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

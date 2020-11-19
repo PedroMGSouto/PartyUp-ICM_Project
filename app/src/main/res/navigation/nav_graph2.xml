@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/frag_MainScreen_Requests">
+
+    <fragment
+        android:id="@+id/frag_MainScreen_Requests"
+        android:name="com.example.partyup.Frag_MainScreen_Requests"
+        android:label="fragment_frag__main_screen__requests"
+        tools:layout="@layout/fragment_frag__main_screen__requests" >
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests_to_frag_Profile"
+            app:destination="@id/frag_Profile" />
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests_to_frag_GameFilter"
+            app:destination="@id/frag_GameFilter" />
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests_to_frag_NewRequest"
+            app:destination="@id/frag_NewRequest" />
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests_to_frag_FriendsAndChat"
+            app:destination="@id/frag_FriendsAndChat" />
+        <action
+            android:id="@+id/action_frag_MainScreen_Requests_to_frag_Map2"
+            app:destination="@id/frag_Map2" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_Profile"
+        android:name="com.example.partyup.frag_Profile"
+        android:label="fragment_frag__profile"
+        tools:layout="@layout/fragment_frag__profile" />
+    <fragment
+        android:id="@+id/frag_FriendsAndChat"
+        android:name="com.example.partyup.Frag_FriendsAndChat"
+        android:label="fragment_frag__friends_and_chat"
+        tools:layout="@layout/fragment_frag__friends_and_chat" />
+    <fragment
+        android:id="@+id/frag_NewRequest"
+        android:name="com.example.partyup.Frag_NewRequest"
+        android:label="fragment_frag__new_request"
+        tools:layout="@layout/fragment_frag__new_request" />
+    <fragment
+        android:id="@+id/frag_GameFilter"
+        android:name="com.example.partyup.Frag_GameFilter"
+        android:label="fragment_frag__game_filter"
+        tools:layout="@layout/fragment_frag__game_filter" />
+    <fragment
+        android:id="@+id/frag_Map2"
+        android:name="com.example.partyup.Frag_Map"
+        android:label="fragment_frag__map"
+        tools:layout="@layout/fragment_frag__map" />
+</navigation>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frag_AppSplash">
+
+    <fragment
+        android:id="@+id/frag_AppSplash"
+        android:name="com.example.partyup.Frag_AppSplash"
+        android:label="fragment_frag__app_splash"
+        tools:layout="@layout/fragment_frag__app_splash" >
+        <action
+            android:id="@+id/action_frag_AppSplash_to_frag_Register"
+            app:destination="@id/frag_Register" />
+        <action
+            android:id="@+id/action_frag_AppSplash_to_frag_Login2"
+            app:destination="@id/frag_Login"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_Login"
+        android:name="com.example.partyup.Frag_Login"
+        android:label="fragment_frag__login"
+        tools:layout="@layout/fragment_frag__login" >
+        <action
+            android:id="@+id/action_frag_Login_to_secondaryActivity"
+            app:destination="@id/secondaryActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_Register"
+        android:name="com.example.partyup.Frag_Register"
+        android:label="fragment_frag__register"
+        tools:layout="@layout/fragment_frag__register" >
+        <action
+            android:id="@+id/action_frag_Register_to_frag_InitialGameSelection"
+            app:destination="@id/frag_InitialGameSelection" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_InitialGameSelection"
+        android:name="com.example.partyup.Frag_InitialGameSelection"
+        android:label="fragment_frag__initial_game_selection"
+        tools:layout="@layout/fragment_frag__initial_game_selection" >
+        <action
+            android:id="@+id/action_frag_InitialGameSelection_to_frag_InitialFriendsSuggestion"
+            app:destination="@id/frag_InitialFriendsSuggestion" />
+    </fragment>
+    <fragment
+        android:id="@+id/frag_InitialFriendsSuggestion"
+        android:name="com.example.partyup.Frag_InitialFriendsSuggestion"
+        android:label="fragment_frag__initial_friends_suggestion"
+        tools:layout="@layout/fragment_frag__initial_friends_suggestion" >
+        <action
+            android:id="@+id/action_frag_InitialFriendsSuggestion_to_secondaryActivity"
+            app:destination="@id/secondaryActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/secondaryActivity"
+        android:name="com.example.partyup.SecondaryActivity"
+        android:label="activity_secondary"
+        tools:layout="@layout/activity_secondary" />
+</navigation>

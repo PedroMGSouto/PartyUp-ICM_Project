@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Scanner"
+        android:enabled="true"
+        android:icon="@drawable/qr"
+        android:title="@string/Scanner"/>
+    <item
+        android:id="@+id/Map"
+        android:enabled="true"
+        android:icon="@drawable/map"
+        android:title="@string/Map"/>
+
+    <item
+        android:id="@+id/Home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="@string/Home"/>
+
+    <item
+        android:id="@+id/Friends"
+        android:enabled="true"
+        android:icon="@drawable/friends"
+        android:title="@string/Friends"/>
+    <item
+        android:id="@+id/Profile"
+        android:enabled="true"
+        android:icon="@drawable/userw"
+        android:title="@string/Profile"/>
+
+</menu>
