@@ -6,15 +6,6 @@
     app:startDestination="@id/Home">
 
     <fragment
-        android:id="@+id/Home"
-        android:name="com.example.partyup.Frag_MainScreen_Requests"
-        android:label="fragment_frag__main_screen__requests"
-        tools:layout="@layout/fragment_frag__main_screen__requests" >
-        <action
-            android:id="@+id/action_frag_MainScreen_Requests2_to_frag_FriendsAndChat2"
-            app:destination="@id/Friends" />
-    </fragment>
-    <fragment
         android:id="@+id/Scanner"
         android:name="com.example.partyup.Frag_Scanner"
         android:label="fragment_frag__scanner"
@@ -28,7 +19,7 @@
         android:name="com.example.partyup.Frag_Map"
         android:label="Frag_Map" >
         <action
-            android:id="@+id/action_frag_Map_to_frag_MainScreen_Requests2"
+            android:id="@+id/action_Map_to_Home"
             app:destination="@id/Home" />
     </fragment>
     <fragment
@@ -45,4 +36,12 @@
         android:name="com.example.partyup.frag_Profile"
         android:label="fragment_frag__profile"
         tools:layout="@layout/fragment_frag__profile" />
+    <fragment
+        android:id="@+id/Home"
+        android:name="com.example.partyup.ScreenSlidePageFragment"
+        android:label="ScreenSlidePageFragment" >
+        <action
+            android:id="@+id/action_Home_to_Friends"
+            app:destination="@id/Friends" />
+    </fragment>
 </navigation>
