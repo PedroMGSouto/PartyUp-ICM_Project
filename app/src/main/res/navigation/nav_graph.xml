@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_frag_Register_to_frag_InitialGameSelection"
             app:destination="@id/frag_InitialGameSelection" />
+        <action
+            android:id="@+id/action_frag_Register_to_secondaryActivity"
+            app:destination="@id/secondaryActivity" />
     </fragment>
     <fragment
         android:id="@+id/frag_InitialGameSelection"

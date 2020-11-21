@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 public class Frag_InitialGameSelection extends Fragment {
     private RecyclerView recyclerView;
-    private TreeSet<String> gameList = new TreeSet<>();
+    public static TreeSet<String> gameList = new TreeSet<>();
     private static TreeSet<String> selectedGames = new TreeSet<>();
 
 

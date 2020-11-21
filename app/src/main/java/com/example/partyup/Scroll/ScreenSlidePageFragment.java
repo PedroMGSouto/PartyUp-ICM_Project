@@ -14,7 +14,7 @@ import com.example.partyup.R;
 
 public class ScreenSlidePageFragment extends Fragment {
 
-    private ViewPager2 mViewPager;
+    public static ViewPager2 mViewPager;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

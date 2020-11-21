@@ -7,13 +7,15 @@ public class Request {
     public String messageDate;
     public String messageTime;
     public String sentBy;
+    public String time;
 
     public Request(){
 
     }
 
-    public Request(String game, String partySize, String partyCurr, String messageDate, String messageTime, String sentBy){
+    public Request(String game, String time, String partySize, String partyCurr, String messageDate, String messageTime, String sentBy){
         this.game=game;
+        this.time=time;
         this.partySize=partySize;
         this.partyCurr=partyCurr;
         this.messageDate=messageDate;
@@ -43,5 +45,9 @@ public class Request {
 
     public String getPartyCurr() {
         return partyCurr;
+    }
+
+    public String getTime() {
+        return time;
     }
 }
