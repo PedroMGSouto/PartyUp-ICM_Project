@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/frag_MainScreen_Requests"
-        android:name="com.example.partyup.Frag_MainScreen_Requests"
+        android:name="com.example.partyup.Requests.Frag_MainScreen_Requests"
         android:label="fragment_frag__main_screen__requests"
         tools:layout="@layout/fragment_frag__main_screen__requests" >
         <action
@@ -28,27 +28,27 @@
     </fragment>
     <fragment
         android:id="@+id/frag_Profile"
-        android:name="com.example.partyup.frag_Profile"
+        android:name="com.example.partyup.Features.frag_Profile"
         android:label="fragment_frag__profile"
         tools:layout="@layout/fragment_frag__profile" />
     <fragment
         android:id="@+id/frag_FriendsAndChat"
-        android:name="com.example.partyup.Frag_FriendsAndChat"
+        android:name="com.example.partyup.Chat.Frag_Friends"
         android:label="fragment_frag__friends_and_chat"
         tools:layout="@layout/fragment_frag__friends_and_chat" />
     <fragment
         android:id="@+id/frag_NewRequest"
-        android:name="com.example.partyup.Frag_NewRequest"
+        android:name="com.example.partyup.Requests.Frag_NewRequest"
         android:label="fragment_frag__new_request"
         tools:layout="@layout/fragment_frag__new_request" />
     <fragment
         android:id="@+id/frag_GameFilter"
-        android:name="com.example.partyup.Frag_GameFilter"
+        android:name="com.example.partyup.Features.Frag_GameFilter"
         android:label="fragment_frag__game_filter"
         tools:layout="@layout/fragment_frag__game_filter" />
     <fragment
         android:id="@+id/frag_Map2"
-        android:name="com.example.partyup.Frag_Map"
+        android:name="com.example.partyup.Features.Frag_Map"
         android:label="fragment_frag__map"
         tools:layout="@layout/fragment_frag__map" />
 </navigation>

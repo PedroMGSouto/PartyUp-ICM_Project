@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/frag_AppSplash"
-        android:name="com.example.partyup.Frag_AppSplash"
+        android:name="com.example.partyup.Login.Frag_AppSplash"
         android:label="fragment_frag__app_splash"
         tools:layout="@layout/fragment_frag__app_splash" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/frag_Login"
-        android:name="com.example.partyup.Frag_Login"
+        android:name="com.example.partyup.Login.Frag_Login"
         android:label="fragment_frag__login"
         tools:layout="@layout/fragment_frag__login" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/frag_Register"
-        android:name="com.example.partyup.Frag_Register"
+        android:name="com.example.partyup.Login.Frag_Register"
         android:label="fragment_frag__register"
         tools:layout="@layout/fragment_frag__register" >
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/frag_InitialGameSelection"
-        android:name="com.example.partyup.Frag_InitialGameSelection"
+        android:name="com.example.partyup.Login.InitialGames.Frag_InitialGameSelection"
         android:label="fragment_frag__initial_game_selection"
         tools:layout="@layout/fragment_frag__initial_game_selection" >
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/frag_InitialFriendsSuggestion"
-        android:name="com.example.partyup.Frag_InitialFriendsSuggestion"
+        android:name="com.example.partyup.Login.Frag_InitialFriendsSuggestion"
         android:label="fragment_frag__initial_friends_suggestion"
         tools:layout="@layout/fragment_frag__initial_friends_suggestion" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <activity
         android:id="@+id/secondaryActivity"
-        android:name="com.example.partyup.SecondaryActivity"
+        android:name="com.example.partyup.Main.SecondaryActivity"
         android:label="activity_secondary"
         tools:layout="@layout/activity_secondary" />
 </navigation>
