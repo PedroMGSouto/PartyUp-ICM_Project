@@ -90,7 +90,7 @@ public class Frag_MainScreen_Requests extends Fragment {
         ref = database.getReference("Requests");
         recyclerView = view.findViewById(R.id.recyclerRequests);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        Query query = ref.orderByChild("time");
+        Query query =ref.orderByChild("time");
         FirebaseRecyclerOptions<Request> options = new FirebaseRecyclerOptions.Builder<Request>()
                 .setQuery(query, Request.class)
                 .build();

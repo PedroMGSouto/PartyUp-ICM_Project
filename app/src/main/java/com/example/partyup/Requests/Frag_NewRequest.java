@@ -143,7 +143,7 @@ public class Frag_NewRequest extends Fragment {
             ref2 = database.getReference("Requests/"+hash);
 
             chatsData.put("lastMessageSent","");
-            chatsData.put("more_properties","");
+            chatsData.put("more_properties","Party " + partyText +" " + gameText);
             ref3 = database.getReference("Chats/"+hash);
             ref4 = database.getReference("userChats");
             HashMap<String,String> users = new HashMap<>();
