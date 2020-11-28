@@ -109,6 +109,9 @@ public class Frag_Register extends Fragment {
                 hm.put("Name",nameField);
                 hm.put("User",userField);
                 hm.put("Sex",sexField);
+                hm.put("PJoined","0");
+                hm.put("QRScanned","0");
+                hm.put("PStarted","0");
 
                 //Save to DB
                 try {

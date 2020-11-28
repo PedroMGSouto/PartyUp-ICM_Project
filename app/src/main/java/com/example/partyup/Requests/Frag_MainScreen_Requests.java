@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,8 +23,6 @@ public class Frag_MainScreen_Requests extends Fragment {
     DatabaseReference ref;
     private RecyclerView recyclerView;
     RequestListAdapter adapter;
-
-
 
     public Frag_MainScreen_Requests() {
         // Required empty public constructor
@@ -44,41 +43,6 @@ public class Frag_MainScreen_Requests extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        /**
-        ref.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot game : snapshot.getChildren()){
-                    for (DataSnapshot id : game.getChildren()){
-                        if(id != null){
-                            Request request = id.getValue(Request.class);
-                            if(request!=null){
-                                String message = request.getMessage();
-                                String messageDate = request.getMessageDate();
-                                String messageTime = request.messageTime;
-                                String sentBy = request.sentBy;
-                                HashMap<String,String> hm = new HashMap<>();
-                                hm.put("message",message);
-                                hm.put("messageDate",messageDate);
-                                hm.put("messageTime",messageTime);
-                                hm.put("sentBy",sentBy);
-                                requests.add(hm);
-                            }
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(),"Failed to retrieve data",Toast.LENGTH_SHORT);
-            }
-        });**/
-
-
     }
 
     @Override
@@ -98,10 +62,6 @@ public class Frag_MainScreen_Requests extends Fragment {
         adapter = new RequestListAdapter(options);
         recyclerView.setAdapter(adapter);
 
-        /*recyclerView = view.findViewById(R.id.recyclerRequests);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new RequestListAdapter(getContext(),requests));*/
 
         return view;
     }

@@ -1,29 +1,35 @@
 package com.example.partyup.Chat;
 
-import java.util.HashMap;
-
 public class Chat {
-    public String lastMessageSent;
-    public HashMap<String,String> members;
-    public String more_properties;
+    public String message;
+    public String messageDate;
+    public String messageTime;
+    public String sentBy;
 
-    public Chat(){}
+    public Chat(){
 
-    public Chat(String lastMessageSent, HashMap<String, String> members, String more_properties) {
-        this.lastMessageSent = lastMessageSent;
-        this.members = members;
-        this.more_properties = more_properties;
     }
 
-    public String getLastMessageSent() {
-        return lastMessageSent;
+    public Chat(String message, String messageDate, String messageTime, String sentBy) {
+        this.message = message;
+        this.messageDate = messageDate;
+        this.messageTime = messageTime;
+        this.sentBy = sentBy;
     }
 
-    public HashMap<String, String> getMembers() {
-        return members;
+    public String getMessage() {
+        return message;
     }
 
-    public String getMore_properties() {
-        return more_properties;
+    public String getMessageDate() {
+        return messageDate;
+    }
+
+    public String getMessageTime() {
+        return messageTime;
+    }
+
+    public String getSentBy() {
+        return sentBy;
     }
 }

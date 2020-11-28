@@ -22,4 +22,9 @@
     <string name="take_photo">Take Photo</string>
     <string name="new_request">New Request</string>
     <string name="partyup">PartyUp!</string>
+    <string name="Chat">Chat</string>
+    <string name="default_info_title">Default Info Title</string>
+    <string name="default_info_snippet">Default Info Snippet</string>
+    <string name="pick_place">Pick Place</string>
+    <string name="option_get_place">Get Place</string>
 </resources>

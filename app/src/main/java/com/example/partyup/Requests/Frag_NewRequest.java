@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -49,7 +50,8 @@ public class Frag_NewRequest extends Fragment {
     private CardView doRequest;
     private EditText partyn;
     private HashMap<String,String> requestData;
-    private HashMap<String,String> chatsData;
+    private HashMap<String,String> chatData;
+    private HashMap<String,String> activeChat;
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
     SimpleDateFormat timeFormat2 = new SimpleDateFormat("HH:mm:ss");
@@ -128,77 +130,51 @@ public class Frag_NewRequest extends Fragment {
             date = new Date();
 
             requestData=new HashMap<>();
-            chatsData=new HashMap<>();
             requestData.put("game",gameText);
             requestData.put("messageDate",dateFormat.format(date));
-            requestData.put("messageTime",timeFormat.format(date));
+            requestData.put("messageTime", timeFormat.format(date));
+            requestData.put("time",dateFormat.format(date) + " " +timeFormat2.format(date));
             requestData.put("partyCurr","1");
             requestData.put("partySize",partyText);
             requestData.put("sentBy", Frag_Login.mAuth.getCurrentUser().getDisplayName());
 
+
+            chatData = new HashMap<>();
+            chatData.put("message","Link Start! ChatRoom initialized!");
+            chatData.put("messageDate",dateFormat.format(date));
+            chatData.put("messageTime",timeFormat.format(date));
+            chatData.put("time",dateFormat.format(date) + " " +timeFormat.format(date));
+            chatData.put("sentBy","PartyUp");
+
             String requestUID = Frag_Login.mAuth.getCurrentUser().getEmail()+timeFormat2.format(date);
-            String clientUID = Frag_Login.mAuth.getCurrentUser().getEmail();
+            String firstMessageId = "Admin"+timeFormat2.format(date);
             String hash = new String(Hex.encodeHex(DigestUtils.md5(requestUID)));
-            String hash2 = new String(Hex.encodeHex(DigestUtils.md5(clientUID)));
+            String hash2 = new String(Hex.encodeHex(DigestUtils.md5(firstMessageId)));
+            String hash3 = new String(Hex.encodeHex(DigestUtils.md5(Frag_Login.mAuth.getCurrentUser().getEmail())));
             ref2 = database.getReference("Requests/"+hash);
+            ref3 = database.getReference("chatMessages/"+hash+"/"+hash2);
+            ref4 = database.getReference("activeChats/"+hash3);
 
-            chatsData.put("lastMessageSent","");
-            chatsData.put("more_properties","Party " + partyText +" " + gameText);
-            ref3 = database.getReference("Chats/"+hash);
-            ref4 = database.getReference("userChats");
-            HashMap<String,String> users = new HashMap<>();
-            HashMap<String,Object> chatuid = new HashMap<>();
-            users.put("0",hash2);
-
-            ref4.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.hasChild(hash2)){
-                        Log.e("Debug","I have found the child!");
-                        ref4 = database.getReference("userChats/"+hash2);
-                        ref4.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                long n =snapshot.getChildrenCount();
-                                Log.e("Debug","The child has: "+n+ " chats");
-                                chatuid.put(String.valueOf(n),hash);
-                                ref4.updateChildren(chatuid);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                                Log.e("Cancel","Cancelled1");
-                            }
-                        });
-                    }
-                    else{
-                        Log.e("Debug","I didn't found any child!");
-                        chatuid.put("0",hash);
-                        ref4 = database.getReference("userChats/"+hash2);
-                        ref4.setValue(chatuid);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Log.e("Cancel","Cancelled2");
-                }
-            });
-
+            activeChat = new HashMap<>();
+            activeChat.put("chat",hash);
+            requestData.put("id",hash);
 
             try {
                 ref2.setValue(requestData);
-                ref3.setValue(chatsData);
-                ref3.child("users").setValue(users);
+                ref3.setValue(chatData);
+                ref4.setValue(activeChat);
             }
 
             catch (Exception ex){
                 Toast.makeText(getActivity(),"Ups! Something went wrong...", Toast.LENGTH_SHORT).show();
                 return;
             }
-            ScreenSlidePageFragment.mViewPager.setCurrentItem(1);
+
+
+            Navigation.findNavController(v).navigate(R.id.action_Home_to_frag_Chat);
             actv.setText("");
             partyn.setText("");
+
         });
         return v;
     }

@@ -34,8 +34,8 @@
             android:textColor="#000000"
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintBaseline_toBaselineOf="@+id/joinPartyButton"
+            app:layout_constraintStart_toEndOf="@+id/joinPartyButton"
             tools:text="10/10/2020" />
 
         <TextView
@@ -89,7 +89,7 @@
             tools:text="0/2" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/joinPartyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -100,6 +100,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/circleImageView"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/reqID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#00FFFFFF"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/joinPartyButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

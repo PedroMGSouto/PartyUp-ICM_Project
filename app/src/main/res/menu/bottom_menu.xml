@@ -18,10 +18,10 @@
         android:title="@string/Home"/>
 
     <item
-        android:id="@+id/Friends"
+        android:id="@+id/Chat"
         android:enabled="true"
-        android:icon="@drawable/friends"
-        android:title="@string/Friends"/>
+        android:icon="@drawable/chat"
+        android:title="@string/Chat"/>
     <item
         android:id="@+id/Profile"
         android:enabled="true"

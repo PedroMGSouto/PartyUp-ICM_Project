@@ -1,49 +1,31 @@
 package com.example.partyup.Features;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageCapture;
-import androidx.camera.core.Preview;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
-
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
+import com.budiyev.android.codescanner.CodeScanner;
+import com.budiyev.android.codescanner.CodeScannerView;
+import com.budiyev.android.codescanner.DecodeCallback;
 import com.example.partyup.R;
-import com.google.common.util.concurrent.ListenableFuture;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
-/**
- * This code that I wrote uses a lot of deprecated methods.
- * If possible replace with the new methods.
- * Those are the methods used in the teacher codelab. So if there's no time it should be fine.
- **/
-
+import com.google.zxing.Result;
 
 public class Frag_Scanner extends Fragment {
     private final int REQUEST_CODE_PERMISSION = 1001;
-    PreviewView mPreviewView;
-    private Executor executor = Executors.newSingleThreadExecutor();
+    private CodeScanner mCodeScanner;
+    private boolean cameraGranted = false;
 
-
-    public Frag_Scanner() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,53 +35,56 @@ public class Frag_Scanner extends Fragment {
             requestPermissions(new String[] { android.Manifest.permission.CAMERA}, REQUEST_CODE_PERMISSION);
         }
         else{
-            startCamera();
+            cameraGranted=true;
         }
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_frag__scanner, container, false);
-        mPreviewView = v.findViewById(R.id.viewFinder);
-        return v;
-    }
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        final Activity activity = getActivity();
+        View root = inflater.inflate(R.layout.fragment_frag__scanner, container, false);
 
-    private void startCamera(){
-        final ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(getContext());
 
-        cameraProviderFuture.addListener(new Runnable() {
+
+        CodeScannerView scannerView = root.findViewById(R.id.scanner_view);
+        mCodeScanner = new CodeScanner(activity, scannerView);
+        mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
-            public void run() {
-                try {
-                    ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
-                    bindPreview(cameraProvider);
-                }
-                catch(Exception ex){
-                    System.out.println("Error");
-                }
+            public void onDecoded(@NonNull final Result result) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                        vibrator.vibrate(100);
+                        Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-        }, ContextCompat.getMainExecutor(getContext()));
-    }
-
-    private void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
-
-        Preview preview = new Preview.Builder().build();
-        preview.setSurfaceProvider(mPreviewView.getSurfaceProvider());
-        CameraSelector cameraSelector = new CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build();
-        cameraProvider.unbindAll();
-        cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, preview);
+        });
+        scannerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCodeScanner.startPreview();
+            }
+        });
+        return root;
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startCamera();
-            } else {
-            }
+    public void onResume() {
+        super.onResume();
+        if(cameraGranted){
+            mCodeScanner.startPreview();
         }
+
+    }
+
+    @Override
+    public void onPause() {
+        mCodeScanner.releaseResources();
+        super.onPause();
+
     }
 }

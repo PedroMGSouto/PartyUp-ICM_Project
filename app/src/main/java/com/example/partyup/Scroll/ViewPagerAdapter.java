@@ -6,13 +6,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.partyup.Features.Frag_GameFilter;
+import com.example.partyup.Login.InitialGames.Frag_InitialGameSelection;
 import com.example.partyup.Requests.Frag_NewRequest;
 import com.example.partyup.Requests.Frag_MainScreen_Requests;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
     private final Fragment[] mFragments = new Fragment[] {//Initialize fragments views
-            new Frag_GameFilter(),
+            new Frag_InitialGameSelection(),
             new Frag_MainScreen_Requests(),
             new Frag_NewRequest()
 

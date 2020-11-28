@@ -23,15 +23,6 @@
             app:destination="@id/Home" />
     </fragment>
     <fragment
-        android:id="@+id/Friends"
-        android:name="com.example.partyup.Chat.Frag_Friends"
-        android:label="fragment_frag__friends_and_chat"
-        tools:layout="@layout/fragment_frag__friends_and_chat" >
-        <action
-            android:id="@+id/action_frag_FriendsAndChat2_to_frag_Profile2"
-            app:destination="@id/Profile" />
-    </fragment>
-    <fragment
         android:id="@+id/Profile"
         android:name="com.example.partyup.Features.frag_Profile"
         android:label="fragment_frag__profile"
@@ -41,7 +32,16 @@
         android:name="com.example.partyup.Scroll.ScreenSlidePageFragment"
         android:label="ScreenSlidePageFragment" >
         <action
-            android:id="@+id/action_Home_to_Friends"
-            app:destination="@id/Friends" />
+            android:id="@+id/action_Home_to_frag_Chat"
+            app:destination="@id/Chat" />
+    </fragment>
+    <fragment
+        android:id="@+id/Chat"
+        android:name="com.example.partyup.Chat.Frag_Chat"
+        android:label="fragment_frag__chat"
+        tools:layout="@layout/fragment_frag__chat" >
+        <action
+            android:id="@+id/action_frag_Chat_to_Profile"
+            app:destination="@id/Profile" />
     </fragment>
 </navigation>
